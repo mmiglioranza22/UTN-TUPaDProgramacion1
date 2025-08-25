@@ -128,7 +128,7 @@ if (dia > 31 or (mes == "febrero" and dia > 29) or ((mes == "abril" or mes == "j
 	print("La fecha es imposible. Adios.")
 else:	
 	# Se tiene que convertir el dia del mes en un dia calendario (entre los 365 dias) para usar como rango
-	# ej: 1 de enero es el dia 1, 31 de diciembre es el dia 365
+	# ej: 1 de enero es el dia 1, 31 de diciembre es el dia 366 (porque se asume que febrero tiene 29 dias)
 	# Se revisa el mes, y se le suman los días de los meses anteriores (a febrero se le suman los 31 días anteriores de enero, por lo que 1 de febrero es el día 32 del calendario)
 	if (mes == "enero"):
 		dia_calendario = dia 

@@ -143,25 +143,88 @@
 # 	print(f"Promedio alumno N {index + 1}: {suma_notas_alumno / 3:.2f}")
 
 
-# 9
+# # 9
 
-tablero = [
-	["-", "-", "-"],
-	["-", "-", "-"],
-	["-", "-", "-"]
+# tablero = [
+# 	["-", "-", "-"],
+# 	["-", "-", "-"],
+# 	["-", "-", "-"]
+# ]
+
+# while True:
+# 	fila_jugador_1 = int(input("Jugador 1: Ingrese fila: 0 - 3: "))
+# 	columna_jugador_1 = int(input("Jugador 1: Ingrese columna: 0 - 3: "))
+# 	tablero[fila_jugador_1][columna_jugador_1] = "X"
+
+# 	for fila in tablero:
+# 		print(fila, sep="\n")
+		
+# 	fila_jugador_2 = int(input("Jugador 2: Ingrese fila: 0 - 3: "))
+# 	columna_jugador_2 = int(input("Jugador 2: Ingrese columna: 0 - 3: "))
+# 	tablero[fila_jugador_2][columna_jugador_2] = "O"
+
+# 	for fila in tablero:
+# 		print(fila, sep="\n")
+
+
+# 10
+
+productos = [
+	[10, 10, 5, 4, 0, 10, 8],
+	[1, 5, 5, 2, 4, 0, 0, 2],
+	[10, 2, 5, 16, 6, 6, 6, 5],
+	[ 5, 5, 1, 10, 5, 5, 10, 2]
 ]
 
-while True:
-	fila_jugador_1 = int(input("Jugador 1: Ingrese fila: 0 - 3: "))
-	columna_jugador_1 = int(input("Jugador 1: Ingrese columna: 0 - 3: "))
-	tablero[fila_jugador_1][columna_jugador_1] = "X"
+total_vendido_producto = []
 
-	for fila in tablero:
-		print(fila, sep="\n")
-		
-	fila_jugador_2 = int(input("Jugador 2: Ingrese fila: 0 - 3: "))
-	columna_jugador_2 = int(input("Jugador 2: Ingrese columna: 0 - 3: "))
-	tablero[fila_jugador_2][columna_jugador_2] = "O"
+for producto in productos:
+	total_producto = 0
+	for venta in producto:
+		total_producto += venta	
+	total_vendido_producto.append(total_producto)
+	
 
-	for fila in tablero:
-		print(fila, sep="\n")
+print(f"Total vendido por producto: {total_vendido_producto}")
+
+mayor_venta_semana = 0
+dia_mayor_venta = 0 # {0..6}
+
+
+for i in range(0,7):
+	ventas_del_dia = 0
+	for producto in productos:
+		ventas_del_dia = ventas_del_dia + producto[i]
+	if (ventas_del_dia > mayor_venta_semana):
+		mayor_venta_semana = ventas_del_dia
+		dia_mayor_venta = i
+
+
+print(f"Mayor venta de la semana: {mayor_venta_semana}")
+if dia_mayor_venta == 0:
+	print(f"El lunes fue el día de mayores ventas")
+elif dia_mayor_venta == 1:
+	print(f"El martes fue el día de mayores ventas")
+elif dia_mayor_venta == 2:
+	print(f"El miércoles fue el día de mayores ventas")
+elif dia_mayor_venta == 3:
+	print(f"El jueves fue el día de mayores ventas")
+elif dia_mayor_venta == 4:
+	print(f"El viernes fue el día de mayores ventas")
+elif dia_mayor_venta == 5:
+	print(f"El sábado fue el día de mayores ventas")
+else:
+	print(f"El domingo fue el día de mayores ventas")
+
+
+producto_mas_vendido = 0 # {0..4}
+producto = 0
+
+for index, mas_vendido in enumerate(total_vendido_producto):
+	print(mas_vendido)
+	if mas_vendido > producto_mas_vendido:
+		producto_mas_vendido = mas_vendido
+		producto = index
+
+print(f"El producto más vendido es el N {producto + 1} ({producto_mas_vendido} ventas totales en la semana)")
+

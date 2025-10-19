@@ -1,0 +1,3 @@
+agua,10.0,100
+cocacola,12.0,30
+pancho,20.0,50

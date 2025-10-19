@@ -15,6 +15,7 @@ def agregar_producto():
 	else:
 		with open("productos.txt", "a") as archivo:
 			archivo.write(nuevo_producto + "\n")
+		print("Producto ingresado")
 
 agregar_producto()
 
@@ -48,11 +49,11 @@ def buscar_producto():
 
 buscar_producto()
 
+print("Guardando datos...")
 with open("productos.txt", "w") as archivo:
 	for producto in productos:
-		print(producto)
 		archivo.write(f"{producto["nombre"]},{producto["precio"]},{producto["cantidad"]}\n")
 
 
-
+print("Datos guardados")
 
